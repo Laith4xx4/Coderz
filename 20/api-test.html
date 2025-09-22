@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار اتصال API - Coderz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .test-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .status-online {
+            background-color: #28a745;
+        }
+        
+        .status-offline {
+            background-color: #dc3545;
+        }
+        
+        .status-connecting {
+            background-color: #ffc107;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .api-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #007bff;
+        }
+        
+        .response-panel {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .response-panel pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="test-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="mb-0">
+                            <i class="fas fa-plug me-2"></i>اختبار اتصال API
+                        </h2>
+                        <div>
+                            <span id="connectionStatus" class="status-indicator status-connecting"></span>
+                            <span id="statusText">جاري الاتصال...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="api-info">
+                        <h5>معلومات API:</h5>
+                        <p><strong>URL:</strong> <span id="apiUrl"></span></p>
+                        <p><strong>البيئة:</strong> <span id="environment"></span></p>
+                        <p><strong>Timeout:</strong> <span id="timeout"></span> ثانية</p>
+                        <p><strong>عدد المحاولات:</strong> <span id="retries"></span></p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary w-100 mb-3" onclick="testConnection()">
+                                <i class="fas fa-wifi me-2"></i>اختبار الاتصال
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-success w-100 mb-3" onclick="testGetProducts()">
+                                <i class="fas fa-list me-2"></i>جلب المنتجات
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-warning w-100 mb-3" onclick="testCreateProduct()">
+                                <i class="fas fa-plus me-2"></i>إنشاء منتج تجريبي
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info w-100 mb-3" onclick="testAllEndpoints()">
+                                <i class="fas fa-play me-2"></i>اختبار جميع النقاط
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="response-panel" id="responsePanel">
+                        <h6>استجابة API:</h6>
+                        <pre id="responseText">اضغط على أي زر لبدء الاختبار...</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script>
+        let testResults = [];
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+            testConnection();
+        });
+        
+        function initializePage() {
+            document.getElementById('apiUrl').textContent = getApiUrl();
+            document.getElementById('environment').textContent = isDevelopment ? 'التطوير' : 'الإنتاج';
+            document.getElementById('timeout').textContent = API_CONFIG.TIMEOUT / 1000;
+            document.getElementById('retries').textContent = API_CONFIG.MAX_RETRIES;
+        }
+        
+        function updateStatus(status, text) {
+            const statusIndicator = document.getElementById('connectionStatus');
+            const statusText = document.getElementById('statusText');
+            
+            statusIndicator.className = `status-indicator status-${status}`;
+            statusText.textContent = text;
+        }
+        
+        function addResponse(title, data, isError = false) {
+            const responseText = document.getElementById('responseText');
+            const timestamp = new Date().toLocaleTimeString('ar-SA');
+            
+            const response = {
+                timestamp,
+                title,
+                data,
+                isError
+            };
+            
+            testResults.push(response);
+            
+            // Keep only last 10 responses
+            if (testResults.length > 10) {
+                testResults.shift();
+            }
+            
+            // Update display
+            responseText.innerHTML = testResults.map(result => `
+                <div style="margin-bottom: 1rem; padding: 0.5rem; border-left: 3px solid ${result.isError ? '#dc3545' : '#28a745'}; background: ${result.isError ? '#f8d7da' : '#d4edda'};">
+                    <strong>${result.title}</strong> - ${result.timestamp}
+                    <pre style="margin-top: 0.5rem; font-size: 0.9rem;">${JSON.stringify(result.data, null, 2)}</pre>
+                </div>
+            `).join('');
+            
+            // Scroll to bottom
+            const responsePanel = document.getElementById('responsePanel');
+            responsePanel.scrollTop = responsePanel.scrollHeight;
+        }
+        
+        async function testConnection() {
+            updateStatus('connecting', 'جاري اختبار الاتصال...');
+            
+            try {
+                const startTime = Date.now();
+                const response = await fetch(getApiUrl(), {
+                    method: 'GET',
+                    headers: API_CONFIG.DEFAULT_HEADERS,
+                    signal: AbortSignal.timeout(API_CONFIG.TIMEOUT)
+                });
+                const endTime = Date.now();
+                
+                if (response.ok) {
+                    updateStatus('online', 'متصل بنجاح');
+                    addResponse('اختبار الاتصال', {
+                        status: 'success',
+                        responseTime: `${endTime - startTime}ms`,
+                        statusCode: response.status,
+                        statusText: response.statusText
+                    });
+                } else {
+                    updateStatus('offline', 'خطأ في الاتصال');
+                    addResponse('اختبار الاتصال', {
+                        status: 'error',
+                        statusCode: response.status,
+                        statusText: response.statusText
+                    }, true);
+                }
+            } catch (error) {
+                updateStatus('offline', 'فشل الاتصال');
+                addResponse('اختبار الاتصال', {
+                    status: 'error',
+                    error: error.message,
+                    type: error.name
+                }, true);
+            }
+        }
+        
+        async function testGetProducts() {
+            try {
+                const response = await productAPI.getProducts();
+                addResponse('جلب المنتجات', response);
+            } catch (error) {
+                addResponse('جلب المنتجات', {
+                    error: error.message
+                }, true);
+            }
+        }
+        
+        async function testCreateProduct() {
+            try {
+                const testProduct = {
+                    name: `منتج تجريبي ${Date.now()}`,
+                    price: Math.floor(Math.random() * 1000) + 100,
+                    quantity: Math.floor(Math.random() * 50) + 1
+                };
+                
+                const response = await productAPI.createProduct(testProduct);
+                addResponse('إنشاء منتج تجريبي', {
+                    input: testProduct,
+                    response: response
+                });
+            } catch (error) {
+                addResponse('إنشاء منتج تجريبي', {
+                    error: error.message
+                }, true);
+            }
+        }
+        
+        async function testAllEndpoints() {
+            addResponse('بدء اختبار جميع النقاط', { message: 'جاري اختبار جميع نقاط API...' });
+            
+            // Test GET
+            try {
+                const getResponse = await productAPI.getProducts();
+                addResponse('GET /api/Products', getResponse);
+            } catch (error) {
+                addResponse('GET /api/Products', { error: error.message }, true);
+            }
+            
+            // Test POST
+            try {
+                const testProduct = {
+                    name: `منتج شامل ${Date.now()}`,
+                    price: 299.99,
+                    quantity: 10
+                };
+                
+                const postResponse = await productAPI.createProduct(testProduct);
+                addResponse('POST /api/Products', {
+                    input: testProduct,
+                    response: postResponse
+                });
+                
+                // Test PUT if POST was successful
+                if (postResponse.success && postResponse.data.id) {
+                    try {
+                        const updateData = {
+                            name: `منتج محدث ${Date.now()}`,
+                            price: 399.99,
+                            quantity: 15
+                        };
+                        
+                        const putResponse = await productAPI.updateProduct(postResponse.data.id, updateData);
+                        addResponse('PUT /api/Products/{id}', {
+                            id: postResponse.data.id,
+                            input: updateData,
+                            response: putResponse
+                        });
+                        
+                        // Test DELETE
+                        try {
+                            const deleteResponse = await productAPI.deleteProduct(postResponse.data.id);
+                            addResponse('DELETE /api/Products/{id}', {
+                                id: postResponse.data.id,
+                                response: deleteResponse
+                            });
+                        } catch (error) {
+                            addResponse('DELETE /api/Products/{id}', {
+                                id: postResponse.data.id,
+                                error: error.message
+                            }, true);
+                        }
+                    } catch (error) {
+                        addResponse('PUT /api/Products/{id}', {
+                            id: postResponse.data.id,
+                            error: error.message
+                        }, true);
+                    }
+                }
+            } catch (error) {
+                addResponse('POST /api/Products', { error: error.message }, true);
+            }
+            
+            // Test Statistics
+            try {
+                const statsResponse = await productAPI.getStatistics();
+                addResponse('GET Statistics', statsResponse);
+            } catch (error) {
+                addResponse('GET Statistics', { error: error.message }, true);
+            }
+            
+            addResponse('انتهاء اختبار جميع النقاط', { 
+                message: 'تم إكمال اختبار جميع نقاط API',
+                totalTests: testResults.length
+            });
+        }
+        
+        // Auto-refresh connection status every 30 seconds
+        setInterval(testConnection, 30000);
+    </script>
+</body>
+</html>

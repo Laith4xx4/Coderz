@@ -1,0 +1,205 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\controllers\\classescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\classescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\models\\prodect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\prodect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\migrations\\20250922052043_m4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\20250922052043_m4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|c:\\users\\user\\downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\webapplication1\\migrations\\20250922055058_m5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CACC47-A06F-4892-BA2A-5C091BAC7F96}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\20250922055058_m5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250922055058_m5.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Migrations\\20250922055058_m5.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\20250922055058_m5.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Migrations\\20250922055058_m5.cs",
+              "RelativeToolTip": "WebApplication1\\Migrations\\20250922055058_m5.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T05:50:59.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20250922052043_m4.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Migrations\\20250922052043_m4.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\20250922052043_m4.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Migrations\\20250922052043_m4.cs",
+              "RelativeToolTip": "WebApplication1\\Migrations\\20250922052043_m4.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T05:20:43.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwGIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T05:18:23.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "prodect.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Models\\prodect.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\prodect.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Models\\prodect.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\prodect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T05:15:35.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\appsettings.json",
+              "RelativeToolTip": "WebApplication1\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-20T19:58:29.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "WebApplication1\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T19:53:39.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T19:53:36.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClassesController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\ClassesController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ClassesController.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\ClassesController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ClassesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T19:53:34.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAYwGkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T10:48:49.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\coderz-learn-hub-main (2)\\coderz20\\\u0627\u062E\u0631 \u0645\u0644\u0641\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "WebApplication1\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwD0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T01:59:26.946Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

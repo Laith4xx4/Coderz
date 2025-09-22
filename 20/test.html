@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار النظام - Coderz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .test-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .test-button {
+            margin: 0.5rem;
+            border-radius: 10px;
+        }
+        
+        .status-success {
+            color: #28a745;
+        }
+        
+        .status-error {
+            color: #b6303d;
+        }
+        
+        .test-result {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="test-card text-center">
+                    <h2 class="mb-4">
+                        <i class="fas fa-vial me-2"></i>اختبار نظام إدارة المنتجات
+                    </h2>
+                    <p class="text-muted mb-4">اختبار جميع وظائف النظام للتأكد من عمله بشكل صحيح</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary test-button w-100" onclick="testAddProduct()">
+                                <i class="fas fa-plus me-2"></i>اختبار إضافة منتج
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-success test-button w-100" onclick="testGetProducts()">
+                                <i class="fas fa-list me-2"></i>اختبار جلب المنتجات
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <button class="btn btn-warning test-button w-100" onclick="testUpdateProduct()">
+                                <i class="fas fa-edit me-2"></i>اختبار تحديث منتج
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-danger test-button w-100" onclick="testDeleteProduct()">
+                                <i class="fas fa-trash me-2"></i>اختبار حذف منتج
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <button class="btn btn-info test-button w-100" onclick="testSearchProducts()">
+                                <i class="fas fa-search me-2"></i>اختبار البحث
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-secondary test-button w-100" onclick="testStatistics()">
+                                <i class="fas fa-chart-bar me-2"></i>اختبار الإحصائيات
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <button class="btn btn-dark test-button w-100" onclick="testExportData()">
+                                <i class="fas fa-download me-2"></i>اختبار التصدير
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-primary test-button w-100" onclick="runAllTests()">
+                                <i class="fas fa-play me-2"></i>تشغيل جميع الاختبارات
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <button class="btn btn-outline-danger test-button" onclick="clearTestData()">
+                                <i class="fas fa-trash-alt me-2"></i>مسح بيانات الاختبار
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="testResults">
+                    <!-- نتائج الاختبارات ستظهر هنا -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script>
+        let testResults = [];
+        
+        function addTestResult(testName, success, message, data = null) {
+            const result = {
+                testName,
+                success,
+                message,
+                data,
+                timestamp: new Date().toLocaleTimeString('ar-SA')
+            };
+            
+            testResults.push(result);
+            displayTestResults();
+        }
+        
+        function displayTestResults() {
+            const container = document.getElementById('testResults');
+            container.innerHTML = testResults.map(result => `
+                <div class="test-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="mb-0">
+                            <i class="fas ${result.success ? 'fa-check-circle status-success' : 'fa-times-circle status-error'} me-2"></i>
+                            ${result.testName}
+                        </h5>
+                        <small class="text-muted">${result.timestamp}</small>
+                    </div>
+                    <p class="mb-2">${result.message}</p>
+                    ${result.data ? `<pre class="test-result"><code>${JSON.stringify(result.data, null, 2)}</code></pre>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        async function testAddProduct() {
+            try {
+                const testProduct = {
+                    name: 'منتج اختبار',
+                    price: 99.99,
+                    quantity: 10
+                };
+                
+                const response = await productAPI.createProduct(testProduct);
+                
+                if (response.success) {
+                    addTestResult(
+                        'إضافة منتج',
+                        true,
+                        'تم إضافة المنتج بنجاح',
+                        response.data
+                    );
+                } else {
+                    addTestResult(
+                        'إضافة منتج',
+                        false,
+                        response.message
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'إضافة منتج',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function testGetProducts() {
+            try {
+                const response = await productAPI.getProducts();
+                
+                if (response.success) {
+                    addTestResult(
+                        'جلب المنتجات',
+                        true,
+                        `تم جلب ${response.data.length} منتج بنجاح`,
+                        response.data
+                    );
+                } else {
+                    addTestResult(
+                        'جلب المنتجات',
+                        false,
+                        response.message
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'جلب المنتجات',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function testUpdateProduct() {
+            try {
+                const products = await productAPI.getProducts();
+                
+                if (products.success && products.data.length > 0) {
+                    const product = products.data[0];
+                    const updateData = {
+                        name: 'منتج محدث',
+                        price: 149.99,
+                        quantity: 15
+                    };
+                    
+                    const response = await productAPI.updateProduct(product.id, updateData);
+                    
+                    if (response.success) {
+                        addTestResult(
+                            'تحديث منتج',
+                            true,
+                            'تم تحديث المنتج بنجاح',
+                            response.data
+                        );
+                    } else {
+                        addTestResult(
+                            'تحديث منتج',
+                            false,
+                            response.message
+                        );
+                    }
+                } else {
+                    addTestResult(
+                        'تحديث منتج',
+                        false,
+                        'لا توجد منتجات للتحديث'
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'تحديث منتج',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function testDeleteProduct() {
+            try {
+                const products = await productAPI.getProducts();
+                
+                if (products.success && products.data.length > 0) {
+                    const product = products.data[0];
+                    const response = await productAPI.deleteProduct(product.id);
+                    
+                    if (response.success) {
+                        addTestResult(
+                            'حذف منتج',
+                            true,
+                            'تم حذف المنتج بنجاح',
+                            response.data
+                        );
+                    } else {
+                        addTestResult(
+                            'حذف منتج',
+                            false,
+                            response.message
+                        );
+                    }
+                } else {
+                    addTestResult(
+                        'حذف منتج',
+                        false,
+                        'لا توجد منتجات للحذف'
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'حذف منتج',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function testSearchProducts() {
+            try {
+                const response = await productAPI.searchProducts('اختبار');
+                
+                if (response.success) {
+                    addTestResult(
+                        'البحث في المنتجات',
+                        true,
+                        `تم العثور على ${response.data.length} منتج`,
+                        response.data
+                    );
+                } else {
+                    addTestResult(
+                        'البحث في المنتجات',
+                        false,
+                        response.message
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'البحث في المنتجات',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function testStatistics() {
+            try {
+                const response = await productAPI.getStatistics();
+                
+                if (response.success) {
+                    addTestResult(
+                        'الإحصائيات',
+                        true,
+                        'تم جلب الإحصائيات بنجاح',
+                        response.data
+                    );
+                } else {
+                    addTestResult(
+                        'الإحصائيات',
+                        false,
+                        response.message
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'الإحصائيات',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        function testExportData() {
+            try {
+                const result = productAPI.exportData();
+                
+                if (result.success) {
+                    addTestResult(
+                        'تصدير البيانات',
+                        true,
+                        result.message
+                    );
+                } else {
+                    addTestResult(
+                        'تصدير البيانات',
+                        false,
+                        result.message
+                    );
+                }
+            } catch (error) {
+                addTestResult(
+                    'تصدير البيانات',
+                    false,
+                    `خطأ: ${error.message}`
+                );
+            }
+        }
+        
+        async function runAllTests() {
+            testResults = [];
+            displayTestResults();
+            
+            await testAddProduct();
+            await testGetProducts();
+            await testUpdateProduct();
+            await testSearchProducts();
+            await testStatistics();
+            testExportData();
+            await testDeleteProduct();
+            
+            const successCount = testResults.filter(r => r.success).length;
+            const totalCount = testResults.length;
+            
+            addTestResult(
+                'ملخص الاختبارات',
+                successCount === totalCount,
+                `تم إكمال ${totalCount} اختبار بنجاح ${successCount} منها`
+            );
+        }
+        
+        function clearTestData() {
+            if (confirm('هل أنت متأكد من مسح جميع بيانات الاختبار؟')) {
+                localStorage.removeItem('products_data');
+                testResults = [];
+                displayTestResults();
+                addTestResult(
+                    'مسح البيانات',
+                    true,
+                    'تم مسح جميع بيانات الاختبار بنجاح'
+                );
+            }
+        }
+        
+        // إضافة بيانات اختبار عند تحميل الصفحة
+        window.addEventListener('load', async () => {
+            const products = await productAPI.getProducts();
+            if (products.success && products.data.length === 0) {
+                // إضافة بيانات اختبار إذا لم تكن موجودة
+                const sampleProducts = [
+                    { name: 'لابتوب HP', price: 1200, quantity: 5 },
+                    { name: 'هاتف iPhone', price: 800, quantity: 10 },
+                    { name: 'سماعات Bluetooth', price: 50, quantity: 25 }
+                ];
+                
+                for (const product of sampleProducts) {
+                    await productAPI.createProduct(product);
+                }
+                
+                addTestResult(
+                    'إعداد البيانات',
+                    true,
+                    'تم إضافة بيانات اختبار بنجاح'
+                );
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coderz - منصة التعلم الرقمية</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <i class="fas fa-code me-2"></i>Coderz
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('home')">الرئيسية</a>
+                    </li>
+                    <li class="nav-item d-none" id="myCoursesNav">
+                        <a class="nav-link" href="#dashboard" onclick="showPage('dashboard')">دوراتي المكتملة</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" onclick="showPage('about')">حولنا</a>
+                    </li>
+                    <li class="nav-item" id="productsNav">
+                        <a class="nav-link" href="product.html">إدارة المنتجات</a>
+                    </li>
+                </ul>
+                <div class="d-flex" id="navButtons">
+                    <button class="btn btn-outline-primary me-2" onclick="showLoginPage()">تسجيل الدخول</button>
+                    <button class="btn btn-primary" onclick="showRegisterPage()">إنشاء حساب</button>
+                </div>
+                <div class="d-flex d-none" id="userNav">
+                    <i class="fas fa-user-circle fa-2x me-2 text-primary"></i> <span class="navbar-text me-3" id="welcomeText"></span>
+                    <button class="btn btn-outline-primary" onclick="logout()">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1 class="display-4 fw-bold mb-4">تعلم البرمجة مع Coderz</h1>
+                        <p class="lead mb-4">منصة تعليمية شاملة لتعلم تطوير الويب، Flutter، ASP.NET، وتصميم UX/UI</p>
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-light btn-lg"  onclick="showPage('home')">ابدأ التعلم الآن</button>
+                            <!-- <button class="btn btn-outline-light btn-lg" herf="https://akdue.github.io/TechTerms/">شاهد الفيديو التعريفي</button> -->
+                          <button class="btn btn-outline-light btn-lg" onclick="window.location.href='https://akdue.github.io/TechTerms/'">مصطلحات</button>
+
+                            <!-- <a href="https://akdue.github.io/TechTerms/">مصطلحات</a> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="floating-animation">
+                            <i class="fas fa-laptop-code" style="font-size: 15rem; opacity: 0.2;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold">دوراتنا التعليمية</h2>
+                    <p class="lead">اختر المسار الذي يناسبك وابدأ رحلتك التعليمية</p>
+                </div>
+                
+                <div class="row g-4">
+                <!--   <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card course-card">
+                            <div class="card-body text-center p-4">
+                                <div class="course-icon pulse-animation">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <h5 class="fw-bold">تطوير الويب</h5>
+                                <p class="text-muted">HTML, CSS, JavaScript, Bootstrap</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                                <button class="btn btn-primary" >ابدأ التعلم</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card course-card">
+                            <div class="card-body text-center p-4">
+                                <div class="course-icon pulse-animation">
+                                    <i class="fab fa-flutter"></i>
+                                </div>
+                                <h5 class="fw-bold">Flutter</h5>
+                                <p class="text-muted">تطوير تطبيقات الجوال</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" style="width: 60%"></div>
+                                </div>
+                                <button  class="btn btn-primary">ابدأ التعلم</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card course-card">
+                            <div class="card-body text-center p-4">
+                                <div class="course-icon pulse-animation">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <h5 class="fw-bold">ASP.NET</h5>
+                                <p class="text-muted">تطوير تطبيقات الويب بـ .NET</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" style="width: 45%"></div>
+                                </div>
+                                <button class="btn btn-primary">ابدأ التعلم</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card course-card">
+                            <div class="card-body text-center p-4">
+                                <div class="course-icon pulse-animation">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h5 class="fw-bold">UX/UI Design</h5>
+                                <p class="text-muted">تصميم تجربة المستخدم والواجهات</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                                <button class="btn btn-primary">ابدأ التعلم</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
+                        <div class="stats-card">
+                            <div class="stats-number">300+</div>
+                            <h5>طالب</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stats-card">
+                            <div class="stats-number">50+</div>
+                            <h5>دورة تدريبية</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stats-card">
+                            <div class="stats-number">170</div>
+                            <h5>ساعة تعليمية</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stats-card">
+                            <div class="stats-number">98%</div>
+                            <h5>معدل الرضا</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page (moved from about.html) -->
+    <div id="about" class="page">
+        <div class="container" style="margin-top: 100px;">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="/WhatsApp Image 2025-09-17 at 13.47.08_8d6b2517.jpg" class="img-fluid rounded shadow-lg mb-4" alt="My Image">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="p-4 border rounded shadow-sm bg-light">
+                        <h4 class="fw-bold mb-3">نبذة عني</h4>
+                        <p class="lead">Hello all and this is me</p>
+                        <p>In the name of God, the most gracious, the most merciful, I am the engineer Laith Yassin Manjis software,
+                         I am skilled in the frontend, but the desire and ambition, I am full stack, thank God if I could, after the grace of God, 
+                        I am needle to be able to use the backend, and that thanks after God to the engineer Yazan Maqser Thank you very much</p>
+                        <a href="https://www.instagram.com/l12_.21l_?igsh=YncwMmphNWNjZ2dv" class="btn btn-primary mt-3">تواصل معي</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login" class="page">
+        <div class="container" style="margin-top: 120px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="form-container" data-aos="fade-up">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-sign-in-alt fa-3x text-primary mb-3"></i>
+                            <h3 class="fw-bold">تسجيل الدخول</h3>
+                            <p class="text-muted">أدخل بياناتك للوصول إلى حسابك</p>
+                        </div>
+                        
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label class="form-label">البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="loginEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">كلمة المرور</label>
+                                <input type="password" class="form-control" id="loginPassword" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">تذكرني</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3">دخول</button>
+                        </form>
+                        
+                        <div class="text-center">
+                            <p>لا تملك حساب؟ <a href="#" onclick="showRegisterPage()" class="text-primary">إنشاء حساب جديد</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register" class="page">
+        <div class="container" style="margin-top: 120px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="form-container" data-aos="fade-up">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                            <h3 class="fw-bold">إنشاء حساب جديد</h3>
+                            <p class="text-muted">انضم إلى منصة Coderz وابدأ رحلتك التعليمية</p>
+                        </div>
+                        
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label class="form-label">البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="registerEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">كلمة المرور</label>
+                                <input type="password" class="form-control" id="registerPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">تأكيد كلمة المرور</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">الدور</label>
+                                <select class="form-select" id="registerRole" required>
+                                    <option value="User" selected>User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">أوافق على الشروط والأحكام</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3">إنشاء الحساب</button>
+                        </form>
+                        
+                        <div class="text-center">
+                            <p>لديك حساب بالفعل؟ <a href="#" onclick="showLoginPage()" class="text-primary">تسجيل الدخول</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page">
+        <div class="container" style="margin-top: 100px; padding-top: 50px;">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="dashboard-card" data-aos="fade-right">
+                        <h5 class="fw-bold mb-4">لوحة التحكم</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <a href="#" onclick="showDashboardSection('courses')" class="text-decoration-none d-flex align-items-center">
+                                    <i class="fas fa-play-circle me-2 text-primary"></i> الدورات
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="#" onclick="showDashboardSection('progress')" class="text-decoration-none d-flex align-items-center">
+                                    <i class="fas fa-chart-line me-2 text-primary"></i> التقدم
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="#" onclick="showDashboardSection('certificates')" class="text-decoration-none d-flex align-items-center">
+                                    <i class="fas fa-certificate me-2 text-primary"></i> الشهادات
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="#" onclick="showDashboardSection('profile')" class="text-decoration-none d-flex align-items-center">
+                                    <i class="fas fa-user me-2 text-primary"></i> الملف الشخصي
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9">
+                    <!-- Courses Section -->
+                    <div id="dashboardCourses" class="dashboard-section">
+                        <div class="dashboard-card" data-aos="fade-up">
+                            <h4 class="fw-bold mb-4">الدورات المتاحة</h4>
+                            <div class="course-list">
+                                <div class="card">
+                                    <!-- <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="course-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                <i class="fab fa-html5"></i>
+                                            </div>
+                                             <div>
+                                                <h6 class="fw-bold mb-1">أساسيات تطوير الويب</h6>
+                                                <p class="text-muted mb-0">HTML, CSS, JavaScript</p>
+                                            </div> 
+                                        </div>
+                                        <div class="progress mb-3">
+                                            <div class="progress-bar" style="width: 75%"></div>
+                                        </div>
+                                        <button class="btn btn-primary" onclick="openVideoPlayer('Web Development Basics', 'https://www.youtube.com/embed/UB1O30fR-EE')">مشاهدة الفيديوهات</button>
+                                    </div>
+                                </div> -->
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="course-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                <i class="fab fa-flutter"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">تطوير التطبيقات بـ Flutter</h6>
+                                                <p class="text-muted mb-0">Dart, Flutter Framework</p>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3">
+                                            <div class="progress-bar" style="width: 60%"></div>
+                                        </div>
+                                        <button class="btn btn-primary" onclick="openVideoPlayer('Flutter Development')">مشاهدة الفيديوهات</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="course-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                <i class="fab fa-microsoft"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">ASP.NET Core</h6>
+                                                <p class="text-muted mb-0">C#, MVC, Web API</p>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3">
+                                            <div class="progress-bar" style="width: 45%"></div>
+                                        </div>
+                                        <button class="btn btn-primary" onclick="window.location.href='https://coderztech-my.sharepoint.com/:f:/g/personal/b_damra_coderz-tech_com/ElM2-Pu_JSNHiNNMiY-Xp0EB_DcOk8eUfkk3ClMrrGlbhQ'">مشاهدة الفيديوهات</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="course-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                <i class="fas fa-paint-brush"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">تصميم UX/UI</h6>
+                                                <p class="text-muted mb-0">Figma</p>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3">
+                                            <div class="progress-bar" style="width: 80%"></div>
+                                        </div>
+                                        <button class="btn btn-primary" onclick="window.location.href='https://coderztech-my.sharepoint.com/:f:/g/personal/b_damra_coderz-tech_com/EqkshlDUBJhLlxyta7NPslEBVECWJNIksDuwY2I8b3jVXA?e=r4fzap'">مشاهدة الفيديوهات</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Section -->
+                    <div id="dashboardProgress" class="dashboard-section" style="display: none;">
+                        <div class="dashboard-card" data-aos="fade-up">
+                            <h4 class="fw-bold mb-4">تقدمك التعليمي</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stats-number">2</div>
+                                        <h6>الدورات المكتملة</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stats-number">60%</div>
+                                        <h6>التقدم العام</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Page -->
+    <div id="videoPlayer" class="page">
+        <div class="container-fluid" style="margin-top: 80px;">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold mb-0" id="videoTitle">عنوان الفيديو</h4>
+                            <button class="btn btn-outline-primary" onclick="showPage('dashboard')">
+                                <i class="fas fa-arrow-right me-2"></i> العودة للدورات
+                            </button>
+                        </div>
+                        <div class="video-container">
+                            <iframe id="videoFrame" class="video-player" src="" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3">
+                    <div class="dashboard-card">
+                        <h5 class="fw-bold mb-4">قائمة الفيديوهات</h5>
+                        <div class="list-group list-group-flush" id="videoPlaylist">
+                            <!-- Video playlist will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
